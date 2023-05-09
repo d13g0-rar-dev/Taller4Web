@@ -11,7 +11,7 @@
 <body>
     <div class="container-sm p-3 my-1 border rounded">
         <fieldset>
-            <form action="" method="post" class="formulario">
+            <form action="" method="post" class="formulario" id="formulario">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -267,14 +267,14 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="inputNombre">Nombre</label>
-                            <input type="text" class="form-control" id="inputNombre" placeholder="Masita">
+                            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Masita">
                           </div>
                     </div>
                 
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="inputApellido">Apellido</label>
-                            <input type="text" class="form-control" id="inputApellido" placeholder="Jaimes">
+                            <input type="text" class="form-control" id="apellido" placeholder="Jaimes">
                         </div>
                     </div>
                 </div>
@@ -288,17 +288,24 @@
             
                 <br>
             
+                <div class="form-horizontal">
+                    <label for="ccusuario">CC Usuario</label>
+                    <input type="text" class="form-control" id="ccusuario">
+                </div>
+
+                <br>
+
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="ccusuario">CC Usuario</label>
-                            <input type="text" class="form-control" id="ccusuario">
+                            <label for="ccusuario">CC Password</label>
+                            <input type="password" class="form-control" id="ccpaswd">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="ccpaswd">CC Password</label>
-                            <input type="password" class="form-control" id="ccupaswd">
+                            <label for="ccpaswd">Confirmar Password</label>
+                            <input type="password" class="form-control" id="confirmpaswd">
                         </div>
                     </div>
                 </div>
