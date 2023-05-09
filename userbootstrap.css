@@ -1,0 +1,7 @@
+
+html {
+    width: 25%;
+    line-height: 1.15; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+    margin: 15px;
+  }
