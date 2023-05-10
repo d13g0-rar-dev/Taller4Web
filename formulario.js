@@ -13,6 +13,7 @@ const expresiones = {
 const campos = {
 	usuario: false,
 	nombre: false,
+	apellido: false,
 	password: false,
 	correo: false,
 	telefono: false
@@ -30,6 +31,9 @@ const validarFormulario = (e) => {
 		break;
 		case "nombre":
 			validarCampo(expresiones.nombre, e.target, 'nombre');
+		break;
+		case "apellido":
+			validarCampo(expresiones.apellido, e.target, 'apellido');
 		break;
 		case "password":
 			validarCampo(expresiones.password, e.target, 'password');
