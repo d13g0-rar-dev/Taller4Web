@@ -2,27 +2,20 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
-	usuario: /^[a-zA-Z0-9]{4,16}$/, // Letras, numeros
+	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-	password: /^[a-zA-Z0-9]+{15,20}$/, // 15 a 20 digitos.
+	password: /^.{4,12}$/, // 4 a 12 digitos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	telefono: /^\d{10}$/ // 10 numeros.
+	telefono: /^\d{7,14}$/ // 7 a 14 numeros.
 }
-
 
 const campos = {
 	usuario: false,
 	nombre: false,
-	apellido: false,
 	password: false,
 	correo: false,
 	telefono: false
 }
-
-inputs.forEach((input) => {
-	input.addEventListener('keyup', validarFormulario);
-	input.addEventListener('blur', validarFormulario);
-});
 
 const validarFormulario = (e) => {
 	switch (e.target.name) {
@@ -31,9 +24,6 @@ const validarFormulario = (e) => {
 		break;
 		case "nombre":
 			validarCampo(expresiones.nombre, e.target, 'nombre');
-		break;
-		case "apellido":
-			validarCampo(expresiones.apellido, e.target, 'apellido');
 		break;
 		case "password":
 			validarCampo(expresiones.password, e.target, 'password');
@@ -89,3 +79,28 @@ const validarPassword2 = () => {
 		campos['password'] = true;
 	}
 }
+
+inputs.forEach((input) => {
+	input.addEventListener('keyup', validarFormulario);
+	input.addEventListener('blur', validarFormulario);
+});
+
+formulario.addEventListener('submit', (e) => {
+	e.preventDefault();
+
+	const terminos = document.getElementById('terminos');
+	if(campos.usuario && campos.nombre && campos.password && campos.correo && campos.telefono && terminos.checked ){
+		formulario.reset();
+
+		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
+		setTimeout(() => {
+			document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
+		}, 5000);
+
+		document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
+			icono.classList.remove('formulario__grupo-correcto');
+		});
+	} else {
+		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+	}
+});
