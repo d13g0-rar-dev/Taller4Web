@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="usercss.css">
     <title>User CSS</title>
 </head>
@@ -13,33 +15,78 @@
             <fieldset>
                 <legend>Formulario</legend>
                 <form action="" class="formulario" id="formulario">
-                    ID Usuario <br>
-                    <input type="number" placeholder="Ingrese numero"> <br>
-                    ID de su Pais <br>
+                    
+                    <div class="formulario__grupo" id="grupo__usuario">
+                        ID Usuario
+                        <input type="number" class="formulario__input" placeholder="Ingrese numero">
+                    </div>
+                    
+                    <br>
+                    
+                    ID de su Pais
                     <select name="pais" id="">
                         <option value="pais">-Selecciona-</option>
                     </select>
                     <br>
-                    Nombre <br>
-                    <input type="text" class="input"> <br>
-                    Apellido <br>
-                    <input type="text" class="input"> <br>
-                    Dirección<br>
-                    <input type="text" class="input"> <br>
-                    CC Usuario <br>
-                    <input type="text" class="input"> <br>
-                    CC Passsword <br>
-                    <input type="password" name="ccpaswd" id="" class="input"> <br>
-                    Email <br>
-                    <input type="email" class="input"> <br>
-                    Telefono <br>
-                    <input type="number" name="telefono" id="" class="input"> <br>
                     <br>
-                    <a href=""><button>Registrarse</button></a>
+
+                    <div class="formulario__grupo" id="grupo__nombre">
+                        <label for="nombre" class="formulario__label">Nombre</label>
+                        <div class="formulario__grupo-input">
+                            <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="John Doe">
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+                    </div>
+
+
+                    <div class="formulario__grupo" id="grupo__nombre">
+                        <label for="nombre" class="fomulario__label">Nombre</label>
+                        <div class="formulario__grupo-input">
+                            <input type="text" class="formulario__input" name="nombre" id="nombre">
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario__input-error">El nombre tiene que ser de máximo 25 caracteres.</p>
+                    </div>
+                    <div class="formulario__grupo" id="grupo__apellido">
+                        <label for="apellido">Apellido</label>
+                        <div class="formulario__grupo-input">
+                            <input type="text" class="formulario__input" name="apellido" id="apellido">
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario__input-error">El apellido tiene que ser de máximo 25 caracteres.</p>
+                    </div>
+                    
+                    <div class="formulario__grupo" id="grupo__password">
+                        <label for="password">Password</label>
+                        <div class="formulario__grupo-input">
+                            <input type="password" class="formulario__input" name="password" id="password">
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario__input-error">La contraseña tiene que ser de 15 a 20 dígitos. Debe contener mayusculas, numeros, letras y/o [#,%,/,&]</p>
+                    </div>
+                    
+                    
+                    
+                    <br>
+                    Dirección<br>
+                    <input type="text" class="formulario__input"> <br>
+                    CC Usuario <br>
+                    <input type="text" class="formulario__input">
+                    <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>                    <br>
+                    CC Password <br>
+                    <input type="password" name="ccpaswd" id="" class="formulario__input"> <br>
+                    Email <br>
+                    <input type="email" class="formulario__input"> <br>
+                    Telefono <br>
+                    <input type="number" name="telefono" id="telefono" class="formulario__input"> <br>
+                    <br>
+                    <a href=""><button type="submit">Registrarse</button></a>
                 </form>
             </fieldset>
         </center>
     </div>
-    
+    <script src="formulario.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 </body>
 </html>

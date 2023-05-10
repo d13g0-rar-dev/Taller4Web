@@ -3,14 +3,6 @@
     font-size: 22px;
 }
 
-.formulario {
-    width: 350px;
-    border-width: 4px;
-    border-radius: 10px;
-    border-color: blueviolet;
-    border-style: dotted;
-    background-color: bisque;
-}
 
 legend {
 
@@ -18,7 +10,7 @@ legend {
     border-radius: 5px;
 }
 
-.input {
+.formulario__input {
     border-radius: 5px;
 }
 
