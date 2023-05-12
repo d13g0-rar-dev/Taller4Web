@@ -2,29 +2,32 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
-	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
+	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo.
+	ccusuario: /^[a-zA-Z0-9]{10,20}$/,
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,25}$/, // Letras y espacios, pueden llevar acentos.
 	apellido: /^[a-zA-ZÀ-ÿ\s]{1,25}$/, //Letras y espacios, pueden llevar acentos.
 	direccion:/\b(^(cll|cra|av|anv|trans))\b/i,
-	password: /^.{4,12}$/, // 4 a 12 digitos.
+	password: /^[a-zA-Z0-9#%/&]{15,20}$/, // 15 a 20 digitos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	telefono: /^\d{10}$/ // 7 a 14 numeros.
 }
 
 const campos = {
 	usuario: false,
+	ccusuario: false,
 	nombre: false,
 	apellido: false,
 	direccion: false,
 	password: false,
 	correo: false,
-	telefono: false
 }
 
 const validarFormulario = (e) => {
 	switch (e.target.name) {
 		case "usuario":
 			validarCampo(expresiones.usuario, e.target, 'usuario');
+		break;
+		case "ccusuario":
+			validarCampo(expresiones.ccusuario, e.target, 'ccusuario');
 		break;
 		case "nombre":
 			validarCampo(expresiones.nombre, e.target, 'nombre');
@@ -44,9 +47,6 @@ const validarFormulario = (e) => {
 		break;
 		case "correo":
 			validarCampo(expresiones.correo, e.target, 'correo');
-		break;
-		case "telefono":
-			validarCampo(expresiones.telefono, e.target, 'telefono');
 		break;
 	}
 }
@@ -99,7 +99,7 @@ formulario.addEventListener('submit', (e) => {
 	e.preventDefault();
 
 	const terminos = document.getElementById('terminos');
-	if(campos.usuario && campos.nombre && campos.apellido && campos.direccion && campos.password && campos.correo && campos.telefono && terminos.checked ){
+	if(campos.usuario && campos.ccusuario && campos.nombre && campos.apellido && campos.direccion && campos.password && campos.correo && terminos.checked ){
 		formulario.reset();
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
